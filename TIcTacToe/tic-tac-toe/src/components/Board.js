@@ -1,10 +1,8 @@
 import React from 'react' 
 import Square from './Square';
 
- function Board ({squares,onClick}) {
-
+ const Board = ({squares,onClick}) => {
  return (
-
   <div>
     <div className='board-row'>
       <Square value={squares[0]} onClick={()=>{onClick(0)}}/>
@@ -22,6 +20,6 @@ import Square from './Square';
       <Square value={squares[8]} onClick={()=>{onClick(8)}}/>
     </div>
   </div>
-  
+
     )}
   export default Board;

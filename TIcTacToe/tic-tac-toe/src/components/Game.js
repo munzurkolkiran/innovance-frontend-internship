@@ -1,26 +1,21 @@
 import React, { useState } from 'react' 
 import Board from './Board';
-import Utils from './Utils';
+import  calculateWinner  from './Utils';
+import Move from './Move';
 
-function Game (){
+const Game =()=>{
   const [history,setHistory]= useState([Array(9).fill(null)]);
   const [stepNumber,setStepNumber]= useState(0);
   const [xIsNext,setXIsNext]= useState(true);
-  const winner = Utils(history[stepNumber]);
-
-
-  const jumpTo=(step)=>{
-    setStepNumber(step);
-    setXIsNext((step%2)===0);
- 
-    }
-
+  const winner = calculateWinner(history[stepNumber]);
 
   const handleClick=(i)=>{
+
     const historyPoint = history.slice(0,stepNumber+1);
       const current = historyPoint[stepNumber];
       const squares = current.slice();
-      if (Utils(squares) || squares[i]) {
+
+      if (calculateWinner(squares) || squares[i]) {
             return;
           }
           squares[i] =xIsNext ? 'X' : 'O';
@@ -29,19 +24,6 @@ function Game (){
           setXIsNext(!xIsNext);
            
   }
-
-
-  const moves = history.map((step, move) => {
-        const desc = move ?
-          'Go to move #' + move :
-          'Go to game start';
-        return (
-          <li key={move}>
-            <button onClick={() => jumpTo(move)}>{desc}</button>
-          </li>
-        );
-      });
-
 
   let status;
   
@@ -60,7 +42,9 @@ function Game (){
             </div>
             <div className="game-info">
               <div>{status}</div>
-              <ol>{moves}</ol>
+         
+                <Move history={history} setStepNumber={setStepNumber} setXIsNext={setXIsNext}/>
+
             </div>
           </div>
         
