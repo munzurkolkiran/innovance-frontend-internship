@@ -2,7 +2,7 @@ import React from "react";
 import Square from "./Square";
 
 const Board = ({ squares, onClick }) => (
-  <div>
+  <>
     <div className="board-row">
       <Square
         value={squares[0]}
@@ -63,7 +63,7 @@ const Board = ({ squares, onClick }) => (
         }}
       />
     </div>
-  </div>
+  </>
 );
 
 export default Board;

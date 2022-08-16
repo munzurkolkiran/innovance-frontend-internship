@@ -39,7 +39,6 @@ const Game = () => {
       </div>
       <div className="game-info">
         <div>{status}</div>
-
         <Moves
           history={history}
           setStepNumber={setStepNumber}
