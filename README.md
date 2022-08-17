@@ -12,7 +12,7 @@ Finished certifications is checked:
 
 Tic-tac-toe tutorial game is built and its source code [here](/TIcTacToe/tic-tac-toe/). Implementation goals:
  - [X] With class components
- - [ ] With functional components + hooks
+ - [X] With functional components + hooks
  - [ ] With addition Context API for state management
  - [ ] With addition Typescript
  - [ ] Writing few tests
