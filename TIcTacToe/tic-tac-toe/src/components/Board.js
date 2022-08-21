@@ -1,73 +1,78 @@
 import React, { useContext } from "react";
-import { GameContext } from "../contexts/GameContext";
-import Square from "./Square";
+import {
+  GameContext,
+  usePlayUserTurn,
+  useHistory,
+} from "../contexts/GameContext";
+import Square from "./Square.js";
 
-const Board = ({ squares }) => {
-  const context = useContext(GameContext);
+const Board = () => {
+  const playerTurn = usePlayUserTurn();
+  const history = useHistory();
+  const { stepNumber } = useContext(GameContext);
   return (
     <>
       <div className="board-row">
         <Square
-          value={squares[0]}
+          value={history[stepNumber][0]}
           onClick={() => {
-            context.handleClick(0);
+            playerTurn(0);
           }}
         />
         <Square
-          value={squares[1]}
+          value={history[stepNumber][1]}
           onClick={() => {
-            context.handleClick(1);
+            playerTurn(1);
           }}
         />
         <Square
-          value={squares[2]}
+          value={history[stepNumber][2]}
           onClick={() => {
-            context.handleClick(2);
-          }}
-        />
-      </div>
-      <div className="board-row">
-        <Square
-          value={squares[3]}
-          onClick={() => {
-            context.handleClick(3);
-          }}
-        />
-        <Square
-          value={squares[4]}
-          onClick={() => {
-            context.handleClick(4);
-          }}
-        />
-        <Square
-          value={squares[5]}
-          onClick={() => {
-            context.handleClick(5);
+            playerTurn(2);
           }}
         />
       </div>
       <div className="board-row">
         <Square
-          value={squares[6]}
+          value={history[stepNumber][3]}
           onClick={() => {
-            context.handleClick(6);
+            playerTurn(3);
           }}
         />
         <Square
-          value={squares[7]}
+          value={history[stepNumber][4]}
           onClick={() => {
-            context.handleClick(7);
+            playerTurn(4);
           }}
         />
         <Square
-          value={squares[8]}
+          value={history[stepNumber][5]}
           onClick={() => {
-            context.handleClick(8);
+            playerTurn(5);
+          }}
+        />
+      </div>
+      <div className="board-row">
+        <Square
+          value={history[stepNumber][6]}
+          onClick={() => {
+            playerTurn(6);
+          }}
+        />
+        <Square
+          value={history[stepNumber][7]}
+          onClick={() => {
+            playerTurn(7);
+          }}
+        />
+        <Square
+          value={history[stepNumber][8]}
+          onClick={() => {
+            playerTurn(8);
           }}
         />
       </div>
     </>
   );
 };
-
 export default Board;
