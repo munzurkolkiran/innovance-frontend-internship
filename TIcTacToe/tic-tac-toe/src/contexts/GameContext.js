@@ -33,8 +33,6 @@ export const usePlayUserTurn = (index) => {
     setXisNext,
   } = context;
   const playUserTurn = () => {
-    console.log("dsadas ", index);
-
     const historyPoint = history.slice(0, stepNumber + 1);
     const current = historyPoint[stepNumber];
     const squares = [...current];
