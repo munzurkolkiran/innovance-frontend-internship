@@ -19,7 +19,7 @@ export function GameProvider({ children }) {
   );
 }
 
-export const usePlayUserTurn = (i) => {
+export const usePlayUserTurn = (index) => {
   const context = useContext(GameContext);
   if (context === undefined) {
     throw new Error("usePlayUserTurn must be used within a GameProvider");
@@ -32,13 +32,15 @@ export const usePlayUserTurn = (i) => {
     setStepNumber,
     setXisNext,
   } = context;
-  const playUserTurn = (i) => {
+  const playUserTurn = () => {
+    console.log("dsadas ", index);
+
     const historyPoint = history.slice(0, stepNumber + 1);
     const current = historyPoint[stepNumber];
     const squares = [...current];
     const winner = calculateWinner(history[stepNumber]);
-    if (winner || squares[i]) return;
-    squares[i] = xIsNext ? "X" : "O";
+    if (winner || squares[index]) return;
+    squares[index] = xIsNext ? "X" : "O";
     setHistory([...historyPoint, squares]);
     setStepNumber(historyPoint.length);
     setXisNext(!xIsNext);
