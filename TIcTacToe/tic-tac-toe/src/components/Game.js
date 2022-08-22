@@ -1,49 +1,24 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import Board from "./Board";
-import calculateWinner from "./Utils";
+import calculateWinner from "../Utils";
 import Moves from "./Moves";
+import { GameContext, useHistory } from "../contexts/GameContext";
 
 const Game = () => {
-  const [history, setHistory] = useState([Array(9).fill(null)]);
-  const [stepNumber, setStepNumber] = useState(0);
-  const [xIsNext, setXIsNext] = useState(true);
+  const history = useHistory();
+  const { stepNumber, xIsNext } = useContext(GameContext);
   const winner = calculateWinner(history[stepNumber]);
-
-  const handleClick = (i) => {
-    const historyPoint = history.slice(0, stepNumber + 1);
-    const current = historyPoint[stepNumber];
-    const squares = current.slice();
-
-    if (calculateWinner(squares) || squares[i]) {
-      return;
-    }
-    squares[i] = xIsNext ? "X" : "O";
-    setHistory([...historyPoint, squares]);
-    setStepNumber(historyPoint.length);
-    setXIsNext(!xIsNext);
-  };
-
-  let status;
-
-  if (winner) {
-    status = "Winner: " + winner;
-  } else if (history.length > 9) {
-    status = "Draw";
-  } else {
-    status = "Next player: " + (xIsNext ? "X" : "O");
-  }
+  const nextPlayer = xIsNext ? "X" : "O";
   return (
     <div className="game">
       <div className="game-board">
-        <Board squares={history[stepNumber]} onClick={handleClick} />
+        <Board />
       </div>
       <div className="game-info">
-        <div>{status}</div>
-        <Moves
-          history={history}
-          setStepNumber={setStepNumber}
-          setXIsNext={setXIsNext}
-        />
+        <h3>History</h3>
+        <h3>{winner ? "Winner: " + winner : "Next Player: " + nextPlayer}</h3>
+
+        <Moves />
       </div>
     </div>
   );

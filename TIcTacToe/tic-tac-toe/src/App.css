@@ -6,12 +6,11 @@ body {
 ol, ul {
   padding-left: 30px;
 }
-
-.board-row:after {
-  clear: both;
-  content: "";
-  display: table;
+.board {
+  display: grid;
+  grid-template: repeat(3, 1fr) / repeat(3, 1fr);
 }
+
 
 .status {
   margin-bottom: 10px;

@@ -1,17 +1,24 @@
-import React from "react";
-const Moves = ({ history, setXIsNext, setStepNumber }) => {
+import React, { useContext } from "react";
+import { GameContext, useHistory } from "../contexts/GameContext";
+
+const Moves = () => {
+  const history = useHistory();
+  const { setStepNumber, setXisNext } = useContext(GameContext);
   const jumpTo = (step) => {
     setStepNumber(step);
-    setXIsNext(step % 2 === 0);
+    setXisNext(step % 2 === 0);
   };
 
-  const move = history.map((step, index) => (
-    <li>
-      <button onClick={() => jumpTo(index)}>
-        {index ? `Go to move # ${index}` : `Go to game start`}
-      </button>
-    </li>
-  ));
-  return <ol>{move}</ol>;
+  return (
+    <ol>
+      {history.map((_step, index) => (
+        <li>
+          <button onClick={() => jumpTo(index)}>
+            {index ? `Go to move # ${index}` : `Go to game start`}
+          </button>
+        </li>
+      ))}
+    </ol>
+  );
 };
 export default Moves;
