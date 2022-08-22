@@ -1,0 +1,24 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+}
+form label {
+  margin: 1rem;
+}
+form input {
+  margin: 1rem;
+  width: 50%;
+}
+form button {
+  margin: 1rem;
+
+  width: 20%;
+  color: white;
+  background-color: blueviolet;
+}
