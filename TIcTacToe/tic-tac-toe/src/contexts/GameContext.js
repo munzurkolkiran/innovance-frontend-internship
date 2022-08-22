@@ -19,7 +19,7 @@ export function GameProvider({ children }) {
   );
 }
 
-export const usePlayUserTurn = () => {
+export const usePlayUserTurn = (i) => {
   const context = useContext(GameContext);
   if (context === undefined) {
     throw new Error("usePlayUserTurn must be used within a GameProvider");

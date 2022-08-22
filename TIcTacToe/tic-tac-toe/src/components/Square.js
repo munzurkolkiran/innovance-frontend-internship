@@ -1,7 +1,10 @@
 import React from "react";
-const Square = ({ value, onClick }) => {
+import { usePlayUserTurn } from "../contexts/GameContext";
+const Square = ({ value, index }) => {
+  const playUserTurn = usePlayUserTurn();
+
   return (
-    <button className="square" onClick={onClick}>
+    <button className="square" onClick={() => playUserTurn(index)}>
       {value}
     </button>
   );
