@@ -49,7 +49,7 @@ export const usePlayUserTurn = () => {
 export const useHistory = () => {
   const context = useContext(GameContext);
   if (context === undefined) {
-    throw new Error("useCount must be used within a GameProvider");
+    throw new Error("useHistory must be used within a GameProvider");
   }
   return context.history;
 };
