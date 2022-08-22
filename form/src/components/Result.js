@@ -1,28 +1,25 @@
 import React, { useEffect, useState } from "react";
 
-const Result = ({ answer }) => {
+const Result = ({ question }) => {
   const [query, setQuery] = useState("");
+  const [answer, setAnswer] = useState("");
 
+  let arr = [];
   useEffect(() => {
     fetch("https://yesno.wtf/api/")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
-        if (answer.trim() === "yes") {
-          if (data.answer === "yes") setQuery(data.image);
-        } else if (answer.trim() === "no") {
-          if (data.answer === "no") setQuery(data.image);
-        }
+        arr.push(data);
+        setQuery(arr[0].image);
+        setAnswer(arr[0].answer);
       });
   }, []);
 
   return (
-    <>
+    <div>
       <p>answer: {answer}</p>
-      <p>
-        image: <img src={query} alt="" />{" "}
-      </p>
-    </>
+      <img src={query} alt="" />
+    </div>
   );
 };
 
