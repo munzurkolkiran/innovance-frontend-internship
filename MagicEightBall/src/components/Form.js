@@ -1,25 +1,29 @@
 import React, { useState } from "react";
 import Result from "./Result";
-import Error from "./Error";
+import UserError from "./UserError";
 
 const Form = () => {
   const [question, setQuestion] = useState("");
+  const [data, setData] = useState("");
   const [isValid, setIsValid] = useState(false);
   const [isError, setIsError] = useState(false);
+
+  const fetchApi = async () => {
+    const response = await fetch("https://yesno.wtf/api/");
+    const json = await response.json();
+    setData(json);
+  };
+
   const handleQuestion = (e) => {
     setQuestion(e.target.value);
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (
       question.match(/^[^?]/) && question.match(/\?$/) //fix regex double or more question mark
-        ? setIsValid(true)
-        : setIsValid(false)
-    );
-    if (
-      question.match(/^[^?]/) && question.match(/\?$/) //fix regex double or more question mark
-        ? setIsError(false)
-        : setIsError(true)
+        ? (setIsValid(true), setIsError(false), fetchApi())
+        : (setIsValid(false), setIsError(true))
     );
   };
 
@@ -38,8 +42,8 @@ const Form = () => {
         </label>
         <button type="submit">Submit</button>
       </form>
-      {isValid ? <Result question={question} /> : null}
-      {isError ? <Error /> : null}
+      {isValid ? <Result question={question} data={data} /> : null}
+      {isError ? <UserError /> : null}
     </>
   );
 };

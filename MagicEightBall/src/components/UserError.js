@@ -1,6 +1,6 @@
 import React from "react";
 
-const Error = () => {
+const UserError = () => {
   return (
     <div>
       You didn't ask a question. You have to use "?" (question mark) in the
@@ -9,4 +9,4 @@ const Error = () => {
   );
 };
 
-export default Error;
+export default UserError;

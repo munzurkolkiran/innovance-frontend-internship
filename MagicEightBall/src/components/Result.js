@@ -1,18 +1,19 @@
 import React from "react";
-import useGetAnswer from "../Utils";
-const Result = ({ question }) => {
-  const answer = useGetAnswer();
+import ServerError from "./ServerError";
+const Result = ({ question, data }) => {
   return (
     <div className="result">
-      <h4>Question: {question}</h4>
-      {answer ? (
+      {data ? (
         <>
-          <p>answer: {answer.answer}</p>
+          <h4>Question: {question}</h4>
+          <p>answer: {data.answer}</p>
           <div className="imgContainer">
-            <img src={answer.image} alt="" />
+            <img src={data.image} alt="" />
           </div>
         </>
-      ) : null}
+      ) : (
+        <ServerError />
+      )}
     </div>
   );
 };
