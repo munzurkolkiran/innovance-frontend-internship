@@ -1,8 +1,9 @@
 import React from "react";
 import ServerError from "./ServerError";
+import { StyledResult } from "./styles/Result.styled";
 const Result = ({ question, data }) => {
   return (
-    <div className="result">
+    <StyledResult>
       {data ? (
         <>
           <h4>Question: {question}</h4>
@@ -14,7 +15,7 @@ const Result = ({ question, data }) => {
       ) : (
         <ServerError />
       )}
-    </div>
+    </StyledResult>
   );
 };
 

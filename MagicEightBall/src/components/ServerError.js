@@ -1,6 +1,5 @@
 import React from "react";
-const ServerError = () => {
-  return <div>Server Error</div>;
-};
+import { StyledServerError } from "./styles/ServerError.styled";
+const ServerError = () => <StyledServerError>Server Error</StyledServerError>;
 
 export default ServerError;
