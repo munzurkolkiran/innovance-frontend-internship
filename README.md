@@ -3,19 +3,22 @@
 ## Freecodecamp
 
 Finished certifications is checked:
-- [X] [Responsive Web Design](https://www.freecodecamp.org/learn/2022/responsive-web-design/)
+
+- [x] [Responsive Web Design](https://www.freecodecamp.org/learn/2022/responsive-web-design/)
 - [ ] [(Legacy) Responsive Web Design](https://www.freecodecamp.org/learn/responsive-web-design/)
-- [X] [JavaScript Algorithms and Data Structures](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/)
+- [x] [JavaScript Algorithms and Data Structures](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/)
 - [ ] [Front End Development](https://www.freecodecamp.org/learn/front-end-development-libraries/)
 
 ## Reactjs.org
 
 Tic-tac-toe tutorial game is built and its source code [here](/TIcTacToe/tic-tac-toe/). Implementation goals:
+
  - [X] With class components
  - [X] With functional components + hooks
- - [ ] With addition Context API for state management
+ - [X] With addition Context API for state management
  - [ ] With addition Typescript
  - [ ] Writing few tests
+ 
 
 ## A Beginners Guide to React Introduction
 
