@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 import Result from "./Result";
 import UserError from "./UserError";
-import { StyledForm } from "./styles/Form.styled";
+import {
+  StyledForm,
+  StyledButton,
+  StyledInput,
+  StyledLabel,
+} from "./styles/Form.styled";
 
 const Form = () => {
   const [question, setQuestion] = useState("");
@@ -31,17 +36,17 @@ const Form = () => {
   return (
     <>
       <StyledForm onSubmit={handleSubmit}>
-        <label htmlFor="question">
+        <StyledLabel htmlFor="question">
           <strong> Ask Your Question: </strong>
-          <input
+          <StyledInput
             id="question"
             type="text"
             required
             value={question}
             onChange={handleQuestion}
           />
-        </label>
-        <button type="submit">Submit</button>
+        </StyledLabel>
+        <StyledButton type="submit">Submit</StyledButton>
       </StyledForm>
       {isValid ? <Result question={question} data={data} /> : null}
       {isError ? <UserError /> : null}

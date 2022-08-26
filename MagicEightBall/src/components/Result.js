@@ -1,21 +1,27 @@
 import React from "react";
 import ServerError from "./ServerError";
-import { StyledResult } from "./styles/Result.styled";
+import {
+  StyledContainer,
+  StyledH4,
+  StyledImage,
+  StyledImageContainer,
+  StyledP,
+} from "./styles/Result.styled";
 const Result = ({ question, data }) => {
   return (
-    <StyledResult>
+    <StyledContainer>
       {data ? (
         <>
-          <h4>Question: {question}</h4>
-          <p>answer: {data.answer}</p>
-          <div className="imgContainer">
-            <img src={data.image} alt="" />
-          </div>
+          <StyledH4>Question: {question}</StyledH4>
+          <StyledP>answer: {data.answer}</StyledP>
+          <StyledImageContainer>
+            <StyledImage src={data.image} alt="" />
+          </StyledImageContainer>
         </>
       ) : (
         <ServerError />
       )}
-    </StyledResult>
+    </StyledContainer>
   );
 };
 
