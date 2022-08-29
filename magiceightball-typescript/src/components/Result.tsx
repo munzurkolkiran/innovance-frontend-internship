@@ -18,7 +18,7 @@ type QuestionAnswerProps = {
   data: AnswerResponse;
   question: string;
 }
-const Result = ({ question, data }:QuestionAnswerProps) => {
+const Result : React.FC<QuestionAnswerProps> = ({ question, data }) => {
   return (
     <StyledContainer>
       {data ? (
