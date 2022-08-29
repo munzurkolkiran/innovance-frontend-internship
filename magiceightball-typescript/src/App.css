@@ -1,0 +1,20 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+h1{
+  background-color: rebeccapurple;
+  color: white;
+  text-align: center;
+  padding: .5rem;
+  border-radius: 1rem;
+  box-shadow: 5px 3px 5px rgba(0,0,0 ,0.5);
+}
