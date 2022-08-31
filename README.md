@@ -16,7 +16,7 @@ Tic-tac-toe tutorial game is built and its source code [here](/TIcTacToe/tic-tac
 - [x] With class components
 - [x] With functional components + hooks
 - [x] With addition Context API for state management
-- [ ] With addition Typescript
+- [x] With addition Typescript
 - [ ] Writing few tests
 
 ## A Beginners Guide to React Introduction
